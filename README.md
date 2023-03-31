@@ -1,163 +1,59 @@
-# Terraform-Associate-Certification-002-
-
-
-
-
-# Variables 
-
-1. String 
-2. List 
-3. Map
-4. Number
-5. bool 
-6. null
-
-
-## Count & Count Index
-
-count.index 
-
-
-count = 5 
-will itterate till 4 resources 
-
-
-condition ? true-value : false-value
-
-count = var.istest == true ? 1:0
-
-
-## Local Values
-
-locals {
-
-}
-local.
-
-
-
-## Terraform functions
-
-Only functions build in to the language are we can use. 
-No user-defined functions. 
-
-test functions on terraform console 
-max()
-min()
-element(list,inxdex)
-file(path)
-lookup(map,key,defalut)
-formatdate(spec, timestamp)
-timestamp() ${path.module}
-
-
-
-
-## Data Sources 
-
-data {}
-
-just like var. use data.
-
-
-## Debugging in terraform 
-
-export TF_LOG = TRACE, DEBUG, INFO WARN, ERROR
-
-TF_LOG_PATH = /TEMP/LOGS/LOG.LOG
-
-
-
-## Terraform format
-
-indentation 
-
-terraform fmt
-
-## terraform validate
-
-
-## Load Order & Semantics
-
-
-## Dynamic BLock
-
-
-resource "" {
-
-    // other things 
-dynamic "" {
-
-    for_each = var.ports
-    content {
-
-    }
-}
-
-}
-
-
-## Tainting Resources 
-
-terraform taint aws_instance.ec2
-
-terraform plan
-
-delete & create again 
-
-## Splat expression
-
-output "arns" {
-    value = aws_iam_user.lb[*].arn
-}
-
-* is splat expression
-
-
-
-## Terraform Graph 
-
-terraform graph > graph.dot
-
-
-terraform plan -out=demopath
-
-## Terraform output
-
-
-## Terrafomr settings 
-
-REQUIRE_VERSION
-required_providers
-
-## 
-
--refresh= false
--target= resource 
-
-
-## Zipmap function 
-
-output mapping 
-
-zipmap(key,values) 
-
-
-## Comments in terraform 
-
-#
-//
-/* */
-
-
-## Data Type (Set)
-
-list [] allow duplicate 
-
-set {} uniqe
-
-toset([list])
-
-
-
-## Foreach 
+# Terraform-Associate-Certification-003 
+
+## Topics
+
+1. Understand Infrastructure as Code (IaC) concepts
+    - Explain what IaC is.
+    - Describe advantages of IaC patterns.
+
+2. Understand the purpose of Terraform (vs other IaC)
+    - Explain multi-cloud and provider-agnostic benefits.
+    - Explain the benefits of state.
+
+3. Understand Terraform basics
+    - Install and version Terraform providers.
+    - Describe plugin-based architecture.
+    - Write Terraform configuration using multiple providers.
+    - Describe how Terraform finds and fetches providers.
+
+4. Use Terraform outside the core workflow
+    - Describe when to use `terraform import` to import existing infrastructure into your Terraform state.
+    - Use `terraform state` to view Terraform state.
+    - Describe when to enable verbose logging and what the outcome/value is.
+
+5. Interact with Terraform modules
+    - Contrast and use different module source options including the public Terraform Registry.
+    - Interact with module inputs and outputs.
+    - Describe variable scope within modules/child modules.
+    - Set module version
+
+6. Use the core Terraform workflow
+    - Describe Terraform workflow ( Write -> Plan -> Create )
+    - Initialize a Terraform working directory (`terraform init`)
+    - Validate a Terraform configuration (`terraform validate`)
+    - Generate and review an execution plan for Terraform (`terraform plan`)
+    - Execute changes to infrastructure with Terraform (`terraform apply`)
+    - Destroy Terraform managed infrastructure (`terraform destroy`).
+    - Apply formatting and style adjustments to a configuration (`terraform fmt`)
+    
+7. Implement and maintain state
+    - Describe default `local` backend.
+    - Describe state locking.
+    - Handle backend and cloud integration authentication methods.
+    - Differentiate remote state back end options.
+    - Manage resource drift and Terraform state.
+    - Describe `backend` block and cloud integration in configuration.
+    - Understand secret management in state files.
+
+8. Read, generate, and modify configuration
+    - Demonstrate use of variables and outputs.
+    - Describe secure secret injection best practice.
+    - Understand the use of collection and structural types.
+    - Create and differentiate `resource` and `data` configuration.
+    - Use resource addressing and resource parameters to connect resources together.
+    - Use HCL and Terraform functions to write configuration.
+    - Describe built-in dependency management (order of execution based).
+
+9. Understand Terraform Cloud capabilities
+    - Explain how Terraform Cloud helps to manage infrastructure.
+    - Describe how Terraform Cloud enables collaboration and governance.
